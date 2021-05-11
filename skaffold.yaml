@@ -77,6 +77,7 @@ build: &default-build
     sha256: {}
 deploy: &default-deploy
   statusCheckDeadlineSeconds: 900
+  kubeContext: docker-desktop
   kustomize:
     path: ./kustomize/overlay/7.0/all
 
@@ -89,6 +90,7 @@ profiles:
         template: "{{.IMAGE_TAG}}"
     artifacts: *default-artifacts
   deploy:
+    kubeContext: docker-desktop
     kustomize:
       path: ./kustomize/overlay/7.0/all
 
@@ -119,6 +121,7 @@ profiles:
     - *AM
     tagPolicy: *default-tag-policy
   deploy:
+    kubeContext: docker-desktop
     kustomize:
       path: ./kustomize/dev/am
 
@@ -128,6 +131,7 @@ profiles:
     - *AMSTER
     tagPolicy: *default-tag-policy
   deploy:
+    kubeContext: docker-desktop
     kustomize:
       path: ./kustomize/base/amster
 
@@ -137,6 +141,7 @@ profiles:
     - *IDM
     tagPolicy: *default-tag-policy
   deploy:
+    kubeContext: docker-desktop
     kustomize:
       path: ./kustomize/dev/idm
 
@@ -147,6 +152,7 @@ profiles:
     # - *DS-PROXY
     tagPolicy: *default-tag-policy
   deploy:
+    kubeContext: docker-desktop
     kustomize:
       path: ./kustomize/base/ds-cts
 
@@ -157,6 +163,7 @@ profiles:
     # - *DS-PROXY
     tagPolicy: *default-tag-policy
   deploy:
+    kubeContext: docker-desktop
     kustomize:
       path: ./kustomize/base/ds-idrepo
 
@@ -166,6 +173,7 @@ profiles:
     - *IG
     tagPolicy: *default-tag-policy
   deploy:
+    kubeContext: docker-desktop
     kustomize:
       path: ./kustomize/base/ig
 
@@ -175,6 +183,7 @@ profiles:
     - *AM_CONFIG_UPGRADER
     tagPolicy: *default-tag-policy
   deploy:
+    kubeContext: docker-desktop
     kustomize:
       path: ./kustomize/base/am-config-upgrader
 
